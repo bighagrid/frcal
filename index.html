@@ -26,6 +26,8 @@ var xSeperator = 0
 var undefined; 
 
 xMonthName = new Array("","Hammer","Alturiak","Ches","Tarsakh","Mirtul","Kythorn","Flamerule","Eleasis","Eleint","Marpenoth","Uktar","Nightal");
+wMonthName = new Array("","Hammer","Alturiak","Ches","Tarsakh","Mirtul","Kythorn","Flamerule","Eleasias","Eleint","Marpenoth","Uktar","Nightal");
+	
 xPrimaryName = new Array("","Midwinter (Annual Holiday)","--","--","Greengrass (Annual Holiday)","--","--","Midsummer (Annual Holiday)","--","Highharvestide (Annual Holiday)","--","The Feast of the Moon (Annual Holiday)","--");
 xSecondaryName = new Array("","--","--","Ches 19: Spring Equinox","--","--","Kythorn 20: Summer Solstice","--","--","Eleint 21: Autumn Equinox","--","--","Nightal 20: Winter Solstice");
 
@@ -273,7 +275,7 @@ function showPart1(sText){
 		pagedisp += "<td colspan=\"10\"> ";
 		pagedisp += "<table border=\"0\" cellspacing=\"2\" cellpadding=\"3\" bgcolor=\"#999999\" width=\"100%\">";
 		pagedisp += "<tr> ";
-		pagedisp += "<td align=\"center\" bgcolor=\"#FFFFFF\"><font size=\"2\" face=\"Arial, Helvetica, sans-serif\"><a href='https://www.realmshelps.net/cgi-bin/weather.pl?year="+xYear+"&month="+xMonthName[xMonth]+"&latitude=temperate&locale=hills&time=01' target='_blank'>1</a></font></td>";
+		pagedisp += "<td align=\"center\" bgcolor=\"#FFFFFF\"><font size=\"2\" face=\"Arial, Helvetica, sans-serif\"><a href='https://www.realmshelps.net/cgi-bin/weather.pl?year="+xYear+"&month="+wMonthName[xMonth]+"&latitude=temperate&locale=hills&time=01' target='_blank'>1</a></font></td>";
 		pagedisp += "<td align=\"center\" bgcolor=\"#FFFFFF\"><font size=\"2\" face=\"Arial, Helvetica, sans-serif\">2</font></td>";
 		pagedisp += "<td align=\"center\" bgcolor=\"#FFFFFF\"><font size=\"2\" face=\"Arial, Helvetica, sans-serif\">3</font></td>";
 		pagedisp += "<td align=\"center\" bgcolor=\"#FFFFFF\"><font size=\"2\" face=\"Arial, Helvetica, sans-serif\">4</font></td>";
