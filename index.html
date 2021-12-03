@@ -21,6 +21,9 @@ var xMonth = 8
 var xDay = 1
 var xYear = 1491
 
+var xLat = 3
+var xLoc = 4
+
 var xLeap = 0
 var xSeperator = 0
 var undefined; 
@@ -31,7 +34,9 @@ wMonthName = new Array("","Hammer","Alturiak","Ches","Tarsakh","Mirtul","Kythorn
 xPrimaryName = new Array("","Midwinter (Annual Holiday)","--","--","Greengrass (Annual Holiday)","--","--","Midsummer (Annual Holiday)","--","Highharvestide (Annual Holiday)","--","The Feast of the Moon (Annual Holiday)","--");
 wPrimaryName = new Array("","Midwinter","--","--","Greengrass","--","--","Midsummer","--","Higharvestide","--","Feast_of_the_Moon","--");
 xSecondaryName = new Array("","--","--","Ches 19: Spring Equinox","--","--","Kythorn 20: Summer Solstice","--","--","Eleint 21: Autumn Equinox","--","--","Nightal 20: Winter Solstice");
-	
+
+wLatName = new Array("artic","subarctic","temperate","subtropical","tropical");
+wLocName = new Array("coast","desert","forest","hills","mountain","plains","swamp");	
 
 aLeapData = new Array(0,1,2,2,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,12,12,13,14,14,14,15,15,16,16,16,0,
 1,2,2,3,3,4,4,5,6,6,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,16,16,1,0,0,
@@ -242,6 +247,24 @@ function clickSetMonth(){
 	showPart1();	
 	
 }
+	
+// ====||| CLICK SET Latitude |||=================================================
+
+function clickSetLat(){
+	xLat = parseInt(document.form1.latitude.value);
+	
+	showPart1();	
+	
+}
+	
+// ====||| CLICK SET MONTH |||=================================================
+
+function clickSetLoc(){
+	xLoc = parseInt(document.form1.locale.value);
+	
+	showPart1();	
+	
+}	
 
 
 // ===================================================================================
@@ -1047,6 +1070,34 @@ DIV.Scroll {
                   (DR)</font></b></font></td>
                 <td align="center" valign="middle"><img src="cleardot.gif" width="40" height="5"></td>
               </tr>
+		<tr>
+                <td align="center" valign="bottom"> <b> 
+                  <select name="latitude" onChange="clickSetLat(value)">
+                    <option value="1">Artic</option>
+                    <option value="2">Subarctic</option>
+                    <option value="3">Temperate</option>
+                    <option value="4">Subtropical</option>
+                    <option value="5">Tropical</option>
+                  </select>
+                  </b></td>
+                <td align="center" valign="bottom"> <b> 
+                  <select name="locale" onChange="clickSetLoc(value)">
+                    <option value="1">Coastal</option>
+                    <option value="2">Desert</option>
+                    <option value="3">Forest</option>
+                    <option value="4">Hills</option>
+                    <option value="5">Mountains</option>
+                    <option value="6">Plains</option>
+                    <option value="7">Swamp</option>
+                  </select>
+                  </b></td>
+		</tr>
+              <tr> 
+                <td align="center" valign="top"><font size="1"><b><font face="Arial, Helvetica, sans-serif">Latitude</font></b></font></td>
+                <td align="center" valign="top"><font size="1"><b><font face="Arial, Helvetica, sans-serif">Terrain 
+                  (DR)</font></b></font></td>
+                <td align="center" valign="middle"><img src="cleardot.gif" width="40" height="5"></td>
+              </tr>		    
             </table>
           </td>
         </tr>
