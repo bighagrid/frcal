@@ -29,7 +29,9 @@ xMonthName = new Array("","Hammer","Alturiak","Ches","Tarsakh","Mirtul","Kythorn
 wMonthName = new Array("","Hammer","Alturiak","Ches","Tarsakh","Mirtul","Kythorn","Flamerule","Eleasias","Eleint","Marpenoth","Uktar","Nightal");
 	
 xPrimaryName = new Array("","Midwinter (Annual Holiday)","--","--","Greengrass (Annual Holiday)","--","--","Midsummer (Annual Holiday)","--","Highharvestide (Annual Holiday)","--","The Feast of the Moon (Annual Holiday)","--");
+wPrimaryName = new Array("","Midwinter","--","--","Greengrass","--","--","Midsummer","--","Higharvestide","--","Feast_of_the_Moon","--");
 xSecondaryName = new Array("","--","--","Ches 19: Spring Equinox","--","--","Kythorn 20: Summer Solstice","--","--","Eleint 21: Autumn Equinox","--","--","Nightal 20: Winter Solstice");
+	
 
 aLeapData = new Array(0,1,2,2,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,12,12,13,14,14,14,15,15,16,16,16,0,
 1,2,2,3,3,4,4,5,6,6,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,16,16,1,0,0,
@@ -344,7 +346,7 @@ function showPart1(sText){
 			if (xPrimaryName[xMonth] == "--") {
 				pagedisp += "&nbsp;";
 			} else {		 		
-				pagedisp += xPrimaryName[xMonth];
+				pagedisp += "<a href='https://www.realmshelps.net/cgi-bin/weather.pl?year="+xYear+"&month="+wPrimaryName[xMonth]+"&latitude=temperate&locale=hills&time=01' target='_blank'>"+xPrimaryName[xMonth]+"</a>";
 			}
 		
 			pagedisp += "</font></td>";
@@ -363,7 +365,7 @@ function showPart1(sText){
 			pagedisp += "<table border=\"0\" cellspacing=\"2\" cellpadding=\"3\" bgcolor=\"#999999\" width=\"100%\">";
 			pagedisp += "<tr bgcolor=\"#FFFFFF\"> ";
 			pagedisp += "<td align=\"center\"><font size=\"1\" face=\"Arial, Helvetica, sans-serif\">";
-			pagedisp += "Shieldmeet (Once Every Four Years)";			
+			pagedisp += "<a href='https://www.realmshelps.net/cgi-bin/weather.pl?year="+xYear+"&month=Shieldmeet&latitude=temperate&locale=hills&time=01' target='_blank'>Shieldmeet (Once Every Four Years)</a>";			
 			pagedisp += "</font></td>";
 			pagedisp += "</tr>";
 			pagedisp += "</table>";
