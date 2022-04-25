@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <meta name="viewport" content="width=device-width">
 
-<script language="javascript" src="year.js"></script>	
+<script language="javascript" src="year.js"></script>
 
 <script language="javascript1.2">
 <!--
@@ -17,8 +17,8 @@ var browser = navigator.appName;
 var version = navigator.appVersion;
 var bVer = browser + " " + version;
 
-var xMonth = 8
-var xDay = 1
+var xMonth = 9
+var xDay = 9
 var xYear = 1491
 
 var xLat = 3
@@ -26,17 +26,17 @@ var xLoc = 4
 
 var xLeap = 0
 var xSeperator = 0
-var undefined; 
+var undefined;
 
 xMonthName = new Array("","Hammer","Alturiak","Ches","Tarsakh","Mirtul","Kythorn","Flamerule","Eleasis","Eleint","Marpenoth","Uktar","Nightal");
 wMonthName = new Array("","Hammer","Alturiak","Ches","Tarsakh","Mirtul","Kythorn","Flamerule","Eleasias","Eleint","Marpenoth","Uktar","Nightal");
-	
+
 xPrimaryName = new Array("","Midwinter (Annual Holiday)","--","--","Greengrass (Annual Holiday)","--","--","Midsummer (Annual Holiday)","--","Highharvestide (Annual Holiday)","--","The Feast of the Moon (Annual Holiday)","--");
 wPrimaryName = new Array("","Midwinter","--","--","Greengrass","--","--","Midsummer","--","Higharvestide","--","Feast_of_the_Moon","--");
 xSecondaryName = new Array("","--","--","Ches 19: Spring Equinox","--","--","Kythorn 20: Summer Solstice","--","--","Eleint 21: Autumn Equinox","--","--","Nightal 20: Winter Solstice");
 
 wLatName = new Array("","artic","subarctic","temperate","subtropical","tropical");
-wLocName = new Array("","coast","desert","forest","hills","mountain","plains","&swamp=y");	
+wLocName = new Array("","coast","desert","forest","hills","mountain","plains","&swamp=y");
 
 aLeapData = new Array(0,1,2,2,3,3,4,4,5,6,6,7,7,7,8,8,9,10,10,11,11,12,12,13,14,14,14,15,15,16,16,16,0,
 1,2,2,3,3,4,4,5,6,6,7,7,8,8,9,10,10,11,11,11,12,12,13,14,14,15,15,16,16,1,0,0,
@@ -96,13 +96,13 @@ aNoLeapData4 = new Array(0,2,2,3,3,3,4,4,5,6,6,7,7,8,8,9,10,10,11,11,11,12,12,13
 function clickMonthBack(){
 
 	 	xMonth = xMonth - 1
-		
+
 		if (xMonth < 1) {
 			xMonth = 12;
 			clickYearBack();
 		}
 
-		
+
 		showPart1();
 
 }
@@ -118,8 +118,8 @@ function clickMonthForeward(){
 			clickYearForeward()
 		}
 
-	
-		showPart1();	
+
+		showPart1();
 
 }
 
@@ -128,11 +128,11 @@ function clickMonthForeward(){
 function clickYearBack(){
 
 	 	xYear = xYear - 1
-		
+
 //		if (xYear == 0) {
 //				xYear = xYear - 1;
 //		}
-		
+
 		showPart1();
 
 }
@@ -153,27 +153,27 @@ function LeapCheck(){
 	xLeap = 0;
 	zYear = xYear;
 
-	tYear = (zYear * .25); 
-	aYear = Math.round(tYear); 		
+	tYear = (zYear * .25);
+	aYear = Math.round(tYear);
 
 	qYear = (tYear - aYear);
 
 //	alert (qYear);
-	
+
 	if (tYear == aYear) {
 		xLeap = 1;
 	}
 
 	if (qYear == .25) {
 		xLeap = 2;
-	}	
+	}
 	if (qYear == -0.5) {
 		xLeap = 3;
-	}	
+	}
 	if (qYear == -0.25) {
 		xLeap = 4;
-	}	
-		
+	}
+
 }
 
 // ===================================================================================
@@ -182,20 +182,20 @@ function YearNote(){
 
 	nYear = "";
 	yYear = String(xYear);
-	 
+
 	for (i = 0; i < aValidYears.length; i++) {
 		if (aValidYears[i] == xYear) {
 			if (yYear < 0) {
-				yYear = "yn" + Math.abs(yYear) 
+				yYear = "yn" + Math.abs(yYear)
 			} else {
-				yYear = "y" + yYear 
-			}		
+				yYear = "y" + yYear
+			}
 			nYear = eval(yYear);
 		}
 	}
 
 // alert(nYear)
-	
+
 }
 
 // ===================================================================================
@@ -203,39 +203,39 @@ function YearNote(){
 function PersonalNote(){
 
 	yYear = xYear;
-	 
+
 	if (yYear < 0) {
-		yYear = "yn" + math.abs(yYear) 
+		yYear = "yn" + math.abs(yYear)
 	} else {
-		yYear = "y" + yYear 
-	}	
-	
+		yYear = "y" + yYear
+	}
+
 	if (xMonth <= 9) {
-		yYear = yYear + "0" + xMonth 
+		yYear = yYear + "0" + xMonth
 	} else {
-		yYear = yYear + xMonth 
+		yYear = yYear + xMonth
 	}
 
 	if (xDay <= 9) {
-		yYear = yYear + "0" + xDay 
+		yYear = yYear + "0" + xDay
 	} else {
-		yYear = yYear + xDay 
+		yYear = yYear + xDay
 	}
-	
+
 	var nYear = eval(yYear)
-	
+
 }
 
 // ====||| CLICK SET YEAR |||=================================================
 
 function clickSetYear(){
 	xYear = parseInt(document.form1.year.value);
-	
+
 	if (isNaN(xYear) == true) {
 		 xYear = 1372;
 	}
-	
-	showPart1();	
+
+	showPart1();
 
 }
 
@@ -243,57 +243,57 @@ function clickSetYear(){
 
 function clickSetMonth(){
 	xMonth = parseInt(document.form1.month.value);
-	
-	showPart1();	
-	
+
+	showPart1();
+
 }
-	
+
 // ====||| CLICK SET Latitude |||=================================================
 
 function clickSetLat(){
 	xLat = parseInt(document.form1.latitude.value);
-	
-	showPart1();	
-	
+
+	showPart1();
+
 }
-	
+
 // ====||| CLICK SET MONTH |||=================================================
 
 function clickSetLoc(){
 	xLoc = parseInt(document.form1.locale.value);
-	
-	showPart1();	
-	
-}	
+
+	showPart1();
+
+}
 
 
 // ===================================================================================
 
 function showPart1(sText){
 
-		document.form1.year.value = xYear;	
+		document.form1.year.value = xYear;
 
-		LeapCheck();		
-		YearNote();		
-		
+		LeapCheck();
+		YearNote();
+
 		pagedisp = "";
 
 		pagedisp += "<table border=\"0\" cellspacing=\"2\" cellpadding=\"2\" width=\"200\">";
 		pagedisp += "<tr> ";
 		pagedisp += "<td align=\"center\" colspan=\"10\"><font face=\"Arial, Helvetica, sans-serif\" size=\"2\"><b>"
-		
+
 		pagedisp += xMonthName[xMonth];
-		
+
 		pagedisp += " : ";
-		
+
 		pagedisp += xYear;
 
 		pagedisp += " DR</b></font><br/><font face=\"Arial, Helvetica, sans-serif\" size=\"1\">";
 
-		if (nYear != "") {	
+		if (nYear != "") {
 			pagedisp += nYear;
 		}
-			
+
 		pagedisp += "</font></td>";
 		pagedisp += "</tr>";
 		pagedisp += "<tr> ";
@@ -320,29 +320,29 @@ function showPart1(sText){
 		pagedisp += "<td align=\"center\" bgcolor=\"#FFFFFF\"><font size=\"2\" face=\"Arial, Helvetica, sans-serif\"><a href='https://www.realmshelps.net/cgi-bin/weather.pl?year="+xYear+"&month="+wMonthName[xMonth]+"&latitude="+wLatName[xLat]+"&locale="+wLocName[xLoc]+"&time=16' target='_blank'>16</a></font></td>";
 		pagedisp += "<td align=\"center\" bgcolor=\"#FFFFFF\"><font size=\"2\" face=\"Arial, Helvetica, sans-serif\"><a href='https://www.realmshelps.net/cgi-bin/weather.pl?year="+xYear+"&month="+wMonthName[xMonth]+"&latitude="+wLatName[xLat]+"&locale="+wLocName[xLoc]+"&time=17' target='_blank'>17</a></font></td>";
 		pagedisp += "<td align=\"center\" bgcolor=\"#FFFFFF\"><font size=\"2\" face=\"Arial, Helvetica, sans-serif\"><a href='https://www.realmshelps.net/cgi-bin/weather.pl?year="+xYear+"&month="+wMonthName[xMonth]+"&latitude="+wLatName[xLat]+"&locale="+wLocName[xLoc]+"&time=18' target='_blank'>18</a></font></td>";
-		
+
 
 		if (xMonth == 3) {
 			pagedisp += "<td align=\"center\" bgcolor=\"#dadada\"><font size=\"2\" face=\"Arial, Helvetica, sans-serif\"><a href='https://www.realmshelps.net/cgi-bin/weather.pl?year="+xYear+"&month="+wMonthName[xMonth]+"&latitude="+wLatName[xLat]+"&locale="+wLocName[xLoc]+"&time=19' target='_blank'>19</a></font></td>";
-		} else {		
+		} else {
 			pagedisp += "<td align=\"center\" bgcolor=\"#FFFFFF\"><font size=\"2\" face=\"Arial, Helvetica, sans-serif\"><a href='https://www.realmshelps.net/cgi-bin/weather.pl?year="+xYear+"&month="+wMonthName[xMonth]+"&latitude="+wLatName[xLat]+"&locale="+wLocName[xLoc]+"&time=19' target='_blank'>19</a></font></td>";
 		}
 
-		
+
 		if ((xMonth == 6) || (xMonth == 12)) {
 			pagedisp += "<td align=\"center\" bgcolor=\"#dadada\"><font size=\"2\" face=\"Arial, Helvetica, sans-serif\"><a href='https://www.realmshelps.net/cgi-bin/weather.pl?year="+xYear+"&month="+wMonthName[xMonth]+"&latitude="+wLatName[xLat]+"&locale="+wLocName[xLoc]+"&time=20' target='_blank'>20</a></font></td>";
-		} else {		
+		} else {
 			pagedisp += "<td align=\"center\" bgcolor=\"#FFFFFF\"><font size=\"2\" face=\"Arial, Helvetica, sans-serif\"><a href='https://www.realmshelps.net/cgi-bin/weather.pl?year="+xYear+"&month="+wMonthName[xMonth]+"&latitude="+wLatName[xLat]+"&locale="+wLocName[xLoc]+"&time=20' target='_blank'>20</a></font></td>";
-		}		
-		
+		}
+
 		pagedisp += "</tr>";
 		pagedisp += "<tr> ";
 
 		if (xMonth == 9) {
 			pagedisp += "<td align=\"center\" bgcolor=\"#dadada\"><font size=\"2\" face=\"Arial, Helvetica, sans-serif\"><a href='https://www.realmshelps.net/cgi-bin/weather.pl?year="+xYear+"&month="+wMonthName[xMonth]+"&latitude="+wLatName[xLat]+"&locale="+wLocName[xLoc]+"&time=21' target='_blank'>21</a></font></td>";
-		} else {		
+		} else {
 			pagedisp += "<td align=\"center\" bgcolor=\"#FFFFFF\"><font size=\"2\" face=\"Arial, Helvetica, sans-serif\"><a href='https://www.realmshelps.net/cgi-bin/weather.pl?year="+xYear+"&month="+wMonthName[xMonth]+"&latitude="+wLatName[xLat]+"&locale="+wLocName[xLoc]+"&time=21' target='_blank'>21</a></font></td>";
-		}		
+		}
 
 		pagedisp += "<td align=\"center\" bgcolor=\"#FFFFFF\"><font size=\"2\" face=\"Arial, Helvetica, sans-serif\"><a href='https://www.realmshelps.net/cgi-bin/weather.pl?year="+xYear+"&month="+wMonthName[xMonth]+"&latitude="+wLatName[xLat]+"&locale="+wLocName[xLoc]+"&time=22' target='_blank'>22</a></font></td>";
 		pagedisp += "<td align=\"center\" bgcolor=\"#FFFFFF\"><font size=\"2\" face=\"Arial, Helvetica, sans-serif\"><a href='https://www.realmshelps.net/cgi-bin/weather.pl?year="+xYear+"&month="+wMonthName[xMonth]+"&latitude="+wLatName[xLat]+"&locale="+wLocName[xLoc]+"&time=23' target='_blank'>23</a></font></td>";
@@ -368,10 +368,10 @@ function showPart1(sText){
 
 			if (xPrimaryName[xMonth] == "--") {
 				pagedisp += "&nbsp;";
-			} else {		 		
+			} else {
 				pagedisp += "<a href='https://www.realmshelps.net/cgi-bin/weather.pl?year="+xYear+"&month="+wPrimaryName[xMonth]+"&latitude="+wLatName[xLat]+"&locale="+wLocName[xLoc]+"&time=01' target='_blank'>"+xPrimaryName[xMonth]+"</a>";
 			}
-		
+
 			pagedisp += "</font></td>";
 			pagedisp += "</tr>";
 			pagedisp += "</table>";
@@ -383,12 +383,12 @@ function showPart1(sText){
 		pagedisp += "<tr> ";
 		pagedisp += "<td colspan=\"10\"> ";
 
-		if (xLeap == 1 && xMonth == 7) { 
+		if (xLeap == 1 && xMonth == 7) {
 
 			pagedisp += "<table border=\"0\" cellspacing=\"2\" cellpadding=\"3\" bgcolor=\"#999999\" width=\"100%\">";
 			pagedisp += "<tr bgcolor=\"#FFFFFF\"> ";
 			pagedisp += "<td align=\"center\"><font size=\"1\" face=\"Arial, Helvetica, sans-serif\">";
-			pagedisp += "<a href='https://www.realmshelps.net/cgi-bin/weather.pl?year="+xYear+"&month=Shieldmeet&latitude="+wLatName[xLat]+"&locale="+wLocName[xLoc]+"&time=01' target='_blank'>Shieldmeet (Once Every Four Years)</a>";			
+			pagedisp += "<a href='https://www.realmshelps.net/cgi-bin/weather.pl?year="+xYear+"&month=Shieldmeet&latitude="+wLatName[xLat]+"&locale="+wLocName[xLoc]+"&time=01' target='_blank'>Shieldmeet (Once Every Four Years)</a>";
 			pagedisp += "</font></td>";
 			pagedisp += "</tr>";
 			pagedisp += "</table>";
@@ -397,7 +397,7 @@ function showPart1(sText){
 		pagedisp += "</td>";
 		pagedisp += "</tr>";
 
-	
+
 		pagedisp += "<tr> ";
 		pagedisp += "<td colspan=\"10\">";
 
@@ -406,18 +406,18 @@ function showPart1(sText){
 			pagedisp += "<table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"100%\">";
 			pagedisp += "<tr > ";
 			pagedisp += "<td align=\"center\"><font size=\"1\" face=\"Arial, Helvetica, sans-serif\">";
-			pagedisp += xSecondaryName[xMonth];		
+			pagedisp += xSecondaryName[xMonth];
 			pagedisp += "</font></td>";
 			pagedisp += "</tr>";
-			pagedisp += "</table>";		
-		
+			pagedisp += "</table>";
+
 		}
-		
+
 		pagedisp += "</td>";
 		pagedisp += "</tr>";
 		pagedisp += "</table> ";
-		
-			 	
+
+
 		display("pagedisplay1", pagedisp);
 }
 
@@ -427,65 +427,65 @@ function showMoonPhases() {
 
 	sHtml = "";
 	sHtml += "<html><head><title>Phases of Selune</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\"></head>"
-	sHtml += "<body bgcolor=\"#FFFFFF\" background=\"realms_bg_1.jpg\">"	
+	sHtml += "<body bgcolor=\"#FFFFFF\" background=\"realms_bg_1.jpg\">"
 
-	sHtml += "<table border=\"0\" cellpadding=\"0\" cellspacing=\"1\" bgcolor=\"#000000\"><tr><td bgcolor=\"#dadada\">";	
-	
+	sHtml += "<table border=\"0\" cellpadding=\"0\" cellspacing=\"1\" bgcolor=\"#000000\"><tr><td bgcolor=\"#dadada\">";
+
 	sHtml += "<table border=\"0\" cellpadding=\"1\" cellspacing=\"2\">"
-	
-	sHtml += "<tr><td align=\"center\" colspan=\"33\" bgcolor=\"#ebebeb\"><font size=\"5\" face=\"arial\"><b>Phases of Sel&ucirc;ne by Month : " + xYear + " DR</b></font></td></tr>";	
-	
-	sHtml += "<tr><td width=\"80\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">Month</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">1</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">2</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">3</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">4</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">5</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">6</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">7</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">8</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">9</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">10</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">11</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">12</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">13</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">14</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">15</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">16</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">17</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">18</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">19</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">20</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">21</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">22</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">23</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">24</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">25</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">26</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">27</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">28</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">29</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">30</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">31</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">32</font></b></td></tr>";	
-	
-	
-	
+
+	sHtml += "<tr><td align=\"center\" colspan=\"33\" bgcolor=\"#ebebeb\"><font size=\"5\" face=\"arial\"><b>Phases of Sel&ucirc;ne by Month : " + xYear + " DR</b></font></td></tr>";
+
+	sHtml += "<tr><td width=\"80\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">Month</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">1</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">2</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">3</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">4</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">5</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">6</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">7</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">8</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">9</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">10</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">11</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">12</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">13</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">14</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">15</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">16</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">17</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">18</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">19</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">20</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">21</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">22</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">23</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">24</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">25</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">26</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">27</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">28</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">29</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">30</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">31</font></b></td><td width=\"18\" align=\"center\" bgcolor=\"#ffffcc\"><b><font face=\"arial\" size=\"2\">32</font></b></td></tr>";
+
+
+
 	for (mii = 0; mii < 12; mii++) {
-	
+
 	mname = (mii + 1)
-	
-	sHtml += "<tr><td width=\"80\" bgcolor=\"#ffffff\">";		
-	sHtml += "<font face=\"arial\" size=\"2\">" + xMonthName[mname] + "</font>";		
-	sHtml += "</td>";		
-	
+
+	sHtml += "<tr><td width=\"80\" bgcolor=\"#ffffff\">";
+	sHtml += "<font face=\"arial\" size=\"2\">" + xMonthName[mname] + "</font>";
+	sHtml += "</td>";
+
 	for (mi = 1; mi < 33; mi++) {
-	
+
 		mix = (mii * 32) + mi;
 
 		if (xLeap == 1) {
 			moon = aLeapData[mix];
-		}	
+		}
 		if (xLeap == 2) {
 			moon = aNoLeapData2[mix];
-		}	
+		}
 		if (xLeap == 3) {
 			moon = aNoLeapData3[mix];
-		}	
+		}
 		if (xLeap == 4) {
 			moon = aNoLeapData4[mix];
-		}	
+		}
 
-	
-    	sHtml += "<td align=\"center\" bgcolor=\"#ffffff\"><img src=\"moons/Moon_" + moon + ".jpg\"></td>";	
-//     	sHtml += "<td align=\"center\" bgcolor=\"#ffffff\">" + moon + "</td>";	
 
-			
+    	sHtml += "<td align=\"center\" bgcolor=\"#ffffff\"><img src=\"moons/Moon_" + moon + ".jpg\"></td>";
+//     	sHtml += "<td align=\"center\" bgcolor=\"#ffffff\">" + moon + "</td>";
+
+
 	}
-		sHtml += "</tr>";	
+		sHtml += "</tr>";
 	}
-	
+
 		sHtml += "<tr><td align=\"center\" colspan=\"33\" bgcolor=\"#ebebeb\"><font size=\"1\" face=\"arial\">©2005 Wizards of the Coast, Inc., a subsidiary of Hasbro, Inc. All Rights Reserved.</font></td></tr>";
 
 
 	sHtml += "</table></td></tr></table>";
-	
+
 	sHtml += "</body></html>";
-	
+
 	oWindow = window.open("","","width=810,height=350,menubar=yes,scrollbars=no,resizable=yes");
 	oWindow.document.open();
 	oWindow.document.write(sHtml);
 	oWindow.document.close();
-	oWindow.document.focus();	
-	
+	oWindow.document.focus();
+
 }
 
 // === Open Calendar Window ==================================================================
@@ -494,7 +494,7 @@ function showCalendar() {
 
 	sHtml = "";
 	sHtml += "<html><head><title>Phases of Selune</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\"></head>"
-	sHtml += "<body bgcolor=\"#FFFFFF\" background=\"images/back2.jpg\">"	
+	sHtml += "<body bgcolor=\"#FFFFFF\" background=\"images/back2.jpg\">"
 
 
 
@@ -506,19 +506,19 @@ function showCalendar() {
 	sHtml += "<table border=\"0\" cellspacing=\"2\" cellpadding=\"2\" width=\"610\">";
 		sHtml += "<tr> ";
 		sHtml += "<td align=\"center\" colspan=\"10\"><font face=\"Arial, Helvetica, sans-serif\" size=\"5\"><b>"
-		
+
 		sHtml += xMonthName[xMonth];
-		
+
 		sHtml += " : ";
-		
+
 		sHtml += xYear;
 
 		sHtml += " DR</b></font><br/><font face=\"Arial, Helvetica, sans-serif\" size=\"2\"><i>";
 
-		if (nYear != "") {	
+		if (nYear != "") {
 			sHtml += nYear;
 		}
-			
+
 		sHtml += "</i></font></td>";
 		sHtml += "</tr>";
 		sHtml += "<tr> ";
@@ -567,113 +567,113 @@ function showCalendar() {
 		sHtml += "<td colspan=\"10\"> ";
 
 		xSeperator = 0;
-		
+
 		if (xPrimaryName[xMonth] != "--") {
-		
+
 			xSeperator = 1;
-		
+
 			sHtml += "<table border=\"0\" cellspacing=\"2\" cellpadding=\"3\" bgcolor=\"#999999\" width=\"100%\">";
 			sHtml += "<tr bgcolor=\"#FFFFFF\"> ";
-			sHtml += "<td align=\"center\"  >"; 		
+			sHtml += "<td align=\"center\"  >";
 
 			sHtml += "<font size=\"1\" face=\"Arial, Helvetica, sans-serif\">";
 
 			if (xPrimaryName[xMonth] == "--") {
 				sHtml += "&nbsp;";
-			} else {		 		
+			} else {
 				sHtml += xPrimaryName[xMonth];
 			}
-		
+
 			sHtml += "</font>";
 
 		} else {
-		
+
 			if (xSecondaryName[xMonth] != "--") {
 
 			sHtml += "<table border=\"0\" cellspacing=\"2\" cellpadding=\"3\" bgcolor=\"#999999\" width=\"100%\">";
 			sHtml += "<tr bgcolor=\"#FFFFFF\"> ";
-			sHtml += "<td align=\"center\"  >"; 	
-			
+			sHtml += "<td align=\"center\"  >";
+
 			}
-					
-		}	
-		
-		if (xLeap == 1 && xMonth == 7) { 
+
+		}
+
+		if (xLeap == 1 && xMonth == 7) {
 
 			if (xSeperator == 1) {
 				sHtml += "<img src=\"cleardot.gif\" width=\"70\" height=\"10\" >";
 			}
 			sHtml += "<font size=\"1\" face=\"Arial, Helvetica, sans-serif\">";
-			sHtml += "Shieldmeet (Once Every Four Years)";			
+			sHtml += "Shieldmeet (Once Every Four Years)";
 			sHtml += "</font>";
-		}		
-		
+		}
+
 		if (xSecondaryName[xMonth] != "--") {
 
 			if (xSeperator == 1) {
 				sHtml += "<img src=\"cleardot.gif\" width=\"70\" height=\"10\">";
 			}
 			sHtml += "<font size=\"1\" face=\"Arial, Helvetica, sans-serif\">";
-			sHtml += xSecondaryName[xMonth];		
+			sHtml += xSecondaryName[xMonth];
 			sHtml += "</font>";
-					
-		}		
+
+		}
 
 		if (xPrimaryName[xMonth] != "--") {
-		
+
 			sHtml += "</td>";
 			sHtml += "</tr>";
-			sHtml += "</table>";				
+			sHtml += "</table>";
 
 		} else {
-		
+
 			if (xSecondaryName[xMonth] != "--") {
 
 			sHtml += "</td>";
 			sHtml += "</tr>";
-			sHtml += "</table>";	
-			
+			sHtml += "</table>";
+
 			}
-					
-		}	
+
+		}
 
 		sHtml += "</td>";
-		sHtml += "</tr>";		
+		sHtml += "</tr>";
 		sHtml += "<tr> ";
-		sHtml += "<td colspan=\"10\"> ";		
+		sHtml += "<td colspan=\"10\"> ";
 			sHtml += "<table border=\"0\" cellspacing=\"2\" cellpadding=\"3\" bgcolor=\"#999999\" width=\"100%\">";
 			sHtml += "<tr bgcolor=\"#FFFFFF\"> ";
 			sHtml += "<td align=\"left\">";
-			sHtml += "<img src=\"cleardot.gif\" width=\"1\" height=\"500\" align=\"right\" >";				 	
+			sHtml += "<img src=\"cleardot.gif\" width=\"1\" height=\"500\" align=\"right\" >";
 
 			tx = 0;
 			dx = "";
 			yx = "";
 			yxHist = "";
-			nxHist = "";			
-	 
+			nxHist = "";
 
-	 
+
+
 			for (i = 0; i < aValidHistoric.length; i++) {
 		 		for (d = 1; d < 38; d++) {
-		
+
 					if (xYear < 0) {
-						yx = "hn" + Math.abs(xYear); 
+						yx = "hn" + Math.abs(xYear);
 					} else {
-						yx = "hp" + xYear; 
-					}
-						
-					if (xMonth <= 9) {
-						yx += "0";  					
-					}
-					yx += xMonth;  					
-						
-					if (d <= 9) {
-						yx += "0";  					
+						yx = "hp" + xYear;
 					}
 
-					dx = d;					
-					
+					if (xMonth <= 9) {
+						yx += "0";
+					}
+					yx += xMonth;
+
+					if (d <= 9) {
+						yx += "0";
+					}
+
+					dx = d;
+
 					if (d == 31) {dx = "Mw"}
 					if (d == 32) {dx = "G"}
 					if (d == 33) {dx = "Ms"}
@@ -682,51 +682,51 @@ function showCalendar() {
 					if (d == 36) {dx = "S"}
 					if (d == 37) {dx = "X"}
 
-					yx += dx;  	
+					yx += dx;
 
 // alert (yx);
-					
+
 					yxHist = aValidHistoric[i]
-					
-					if (yxHist == yx) { 					
+
+					if (yxHist == yx) {
 						tx += 1;
-						if (tx == 1) { 					
-							sHtml += "<font size=\"2\" face=\"arial\"><b>HISTORICAL NOTES</b></font><br>"		
+						if (tx == 1) {
+							sHtml += "<font size=\"2\" face=\"arial\"><b>HISTORICAL NOTES</b></font><br>"
 						}
 						nxHist = eval(yxHist);
-						sHtml += "<font size=\"2\" face=\"arial\">" + nxHist + "</font><br>"	
+						sHtml += "<font size=\"2\" face=\"arial\">" + nxHist + "</font><br>"
 					}
-				
-				}	
+
+				}
 			}
 
-	
-			ty = 0;	
+
+			ty = 0;
 			dx = "";
 			yx = "";
 			yxHist = "";
-			nxHist = "";			
-	 
+			nxHist = "";
+
 			for (i = 0; i < aValidPersonal.length; i++) {
 		 		for (d = 1; d < 38; d++) {
-		
+
 					if (xYear < 0) {
-						yx = "pn" + Math.abs(xYear); 
+						yx = "pn" + Math.abs(xYear);
 					} else {
-						yx = "pp" + xYear; 
-					}
-						
-					if (xMonth <= 9) {
-						yx += "0";  					
-					}
-					yx += xMonth;  					
-						
-					if (d <= 9) {
-						yx += "0";  					
+						yx = "pp" + xYear;
 					}
 
-					dx = d;					
-					
+					if (xMonth <= 9) {
+						yx += "0";
+					}
+					yx += xMonth;
+
+					if (d <= 9) {
+						yx += "0";
+					}
+
+					dx = d;
+
 					if (d == 31) {dx = "Mw"}
 					if (d == 32) {dx = "G"}
 					if (d == 33) {dx = "Ms"}
@@ -735,26 +735,26 @@ function showCalendar() {
 					if (d == 36) {dx = "S"}
 					if (d == 37) {dx = "X"}
 
-					yx += dx;  	
+					yx += dx;
 
 // alert (yx);
-					
+
 					yxHist = aValidPersonal[i]
-					
-					if (yxHist == yx) { 	
+
+					if (yxHist == yx) {
 						ty += 1;
-						if (ty == 1) { 		
+						if (ty == 1) {
 							if (tx >= 1) {
-							sHtml += "<br>";	
+							sHtml += "<br>";
 							}
-							sHtml += "<font size=\"2\" face=\"arial\"><b>PERSONAL NOTES</b></font><br>";		
-						}									
+							sHtml += "<font size=\"2\" face=\"arial\"><b>PERSONAL NOTES</b></font><br>";
+						}
 						nxHist = eval(yxHist);
-						sHtml += "<font size=\"2\" face=\"arial\">" + nxHist + "</font><br>";	
+						sHtml += "<font size=\"2\" face=\"arial\">" + nxHist + "</font><br>";
 					}
-				
-				}	
-			}			
+
+				}
+			}
 
 
 
@@ -768,7 +768,7 @@ function showCalendar() {
 
 			sHtml += "</td>";
 			sHtml += "</tr>";
-			sHtml += "</table>";		
+			sHtml += "</table>";
 		sHtml += "</td>";
 		sHtml += "</tr>";
 		sHtml += "</table> ";
@@ -785,15 +785,15 @@ function showCalendar() {
 
 
 
-	
+
 	sHtml += "</body></html>";
-	
+
 	oWindow = window.open("","","width=660,height=660,menubar=yes,scrollbars=yes,resizable=yes");
 	oWindow.document.open();
 	oWindow.document.write(sHtml);
 	oWindow.document.close();
-	oWindow.document.focus();	
-	
+	oWindow.document.focus();
+
 }
 
 // === Open Personal Notes ==================================================================
@@ -802,27 +802,27 @@ function showPersonal() {
 
 	sHtml = "";
 	sHtml += "<html><head><title>PERSONAL NOTES</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\"></head>"
-	sHtml += "<body bgcolor=\"#FFFFFF\" background=\"images/back2.jpg\">"	
+	sHtml += "<body bgcolor=\"#FFFFFF\" background=\"images/back2.jpg\">"
 
-	sHtml += "<font size=\"3\" face=\"arial\"><b>PERSONAL NOTES</b></font><br>"		
-	
+	sHtml += "<font size=\"3\" face=\"arial\"><b>PERSONAL NOTES</b></font><br>"
+
 	nHist = "";
 	yHist = "";
-	 
+
 	for (i = 0; i < aValidPersonal.length; i++) {
 		yHist = aValidPersonal[i]
 		nHist = eval(yHist);
-	sHtml += "<font size=\"2\" face=\"arial\">" + nHist + "</font><br>"	
-	}	
-	
+	sHtml += "<font size=\"2\" face=\"arial\">" + nHist + "</font><br>"
+	}
+
 	sHtml += "</body></html>";
-	
+
 	oWindow = window.open("","","width=500,height=500,menubar=yes,scrollbars=yes,resizable=yes");
 	oWindow.document.open();
 	oWindow.document.write(sHtml);
 	oWindow.document.close();
-	oWindow.document.focus();	
-	
+	oWindow.document.focus();
+
 }
 
 // === Open Historic Notes ==================================================================
@@ -831,27 +831,27 @@ function showHistoric() {
 
 	sHtml = "";
 	sHtml += "<html><head><title>HISTORICAL NOTES</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\"></head>"
-	sHtml += "<body bgcolor=\"#FFFFFF\" background=\"images/back2.jpg\">"	
+	sHtml += "<body bgcolor=\"#FFFFFF\" background=\"images/back2.jpg\">"
 
-	sHtml += "<font size=\"3\" face=\"arial\"><b>HISTORICAL NOTES</b></font><br>"		
-	
+	sHtml += "<font size=\"3\" face=\"arial\"><b>HISTORICAL NOTES</b></font><br>"
+
 	nHist = "";
 	yHist = "";
-	 
+
 	for (i = 0; i < aValidHistoric.length; i++) {
 		yHist = aValidHistoric[i]
 		nHist = eval(yHist);
-	sHtml += "<font size=\"2\" face=\"arial\">" + nHist + "</font><br>"	
-	}	
-	
+	sHtml += "<font size=\"2\" face=\"arial\">" + nHist + "</font><br>"
+	}
+
 	sHtml += "</body></html>";
-	
+
 	oWindow = window.open("","","width=500,height=500,menubar=yes,scrollbars=yes,resizable=yes");
 	oWindow.document.open();
 	oWindow.document.write(sHtml);
 	oWindow.document.close();
-	oWindow.document.focus();	
-	
+	oWindow.document.focus();
+
 }
 
 // === Show Roll of Years ==================================================================
@@ -860,34 +860,34 @@ function showYears() {
 
 	sHtml = "";
 	sHtml += "<html><head><title>ROLL OF YEARS</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\"></head>"
-	sHtml += "<body bgcolor=\"#FFFFFF\" background=\"images/back2.jpg\">"	
+	sHtml += "<body bgcolor=\"#FFFFFF\" background=\"images/back2.jpg\">"
 
-	sHtml += "<font size=\"3\" face=\"arial\"><b>ROLL OF YEARS</b></font><br>"		
-	
+	sHtml += "<font size=\"3\" face=\"arial\"><b>ROLL OF YEARS</b></font><br>"
+
 	nYears = "";
 	yYears = "";
 
 	for (i = 0; i < aValidYears.length; i++) {
 			yYears = aValidYears[i];
 			if (yYears < 0) {
-				yYears = "yn" + Math.abs(yYears) 
+				yYears = "yn" + Math.abs(yYears)
 			} else {
-				yYears = "y" + yYears 
-			}		
+				yYears = "y" + yYears
+			}
 			nYears = eval(yYears);
-		
-		sHtml += "<font size=\"2\" face=\"arial\"><b>" + aValidYears[i] + ":</b> " + nYears + "</font><br>"			
-		
+
+		sHtml += "<font size=\"2\" face=\"arial\"><b>" + aValidYears[i] + ":</b> " + nYears + "</font><br>"
+
 	}
-	
+
 	sHtml += "</body></html>";
-	
+
 	oWindow = window.open("","","width=500,height=500,menubar=yes,scrollbars=yes,resizable=yes");
 	oWindow.document.open();
 	oWindow.document.write(sHtml);
 	oWindow.document.close();
-	oWindow.document.focus();	
-	
+	oWindow.document.focus();
+
 }
 
 // ===================================================================================
@@ -920,7 +920,7 @@ font-family: arial, verdana, ms sans serif;
 font-weight: bold;
 font-size: 12px;
 text-align: center;
-} 
+}
 
 TEXTAREA {
 background-color: #ffffff;
@@ -929,7 +929,7 @@ color: black;
 font-family: arial, verdana, ms sans serif;
 font-size: 12px;
 font-weight: normal
-} 
+}
 
 SELECT {
 background-color: #ffffff;
@@ -938,7 +938,7 @@ color: black;
 font-family: arial, verdana, ms sans serif;
 font-size: 12px;
 font-weight: normal
-} 
+}
 
 .radioStyle {
 background-color: #ffffff;
@@ -955,19 +955,19 @@ DIV.Scroll {
 }
 
 -->
-</style> 
+</style>
 <body bgcolor="#FFFFFF" link="#0000ff" vlink="#800080" background="realms_bg_1.jpg" onLoad="resizeTo(370,470); self.focus();">
 
 
 <form method="post" action="" name="form1">
 
 <table width="300" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
-  <tr align="center"> 
+  <tr align="center">
     <td>
       <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" background="fr_top.jpg">
-        <tr align="center" valign="top"> 
-          <td> 
-            <p><font face="Arial, Helvetica, sans-serif" size="3"><b><font color="#FFFFCC" size="2">Forgotten 
+        <tr align="center" valign="top">
+          <td>
+            <p><font face="Arial, Helvetica, sans-serif" size="3"><b><font color="#FFFFCC" size="2">Forgotten
               Realms Calendar Tool<img src="cleardot.gif" width="1" height="14
 "></font><font color="#FFFFCC" size="2"><br>
               <img src="cleardot.gif" width="200" height="4
@@ -977,53 +977,53 @@ DIV.Scroll {
       </table>
     </td>
   </tr>
-  <tr> 
+  <tr>
     <td>
       <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#000000">
-        <tr bgcolor="#FFFFFF"> 
-          <td align="center" valign="top" bgcolor="#F2F2F2"> 
+        <tr bgcolor="#FFFFFF">
+          <td align="center" valign="top" bgcolor="#F2F2F2">
             <table width="100%" border="0" cellspacing="0" cellpadding="0">
-              <tr> 
-                <td width="100%"><img src="cleardot.gif" width="1" height="185"> 
+              <tr>
+                <td width="100%"><img src="cleardot.gif" width="1" height="185">
                 </td>
                 <td align="center" valign="top">&nbsp; </td>
               </tr>
             </table>
           </td>
-          <td bgcolor="#FFFFCC" valign="top" align="center" width="50" rowspan="2"> 
+          <td bgcolor="#FFFFCC" valign="top" align="center" width="50" rowspan="2">
             <table border="0" cellspacing="2" cellpadding="0">
-              <tr align="center"> 
+              <tr align="center">
                 <td colspan="2"><b><font face="Arial, Helvetica, sans-serif" size="1">Month</font></b></td>
               </tr>
-              <tr align="center"> 
+              <tr align="center">
                 <td colspan="2"><a href="javascript:clickMonthBack()"><img src="reverse.jpg" width="18" height="18" border="0" alt="Month Back"></a><img src="cleardot.gif" width="2" height="18"><a href="javascript:clickMonthForeward()"><img src="foreward.jpg" width="18" height="18" border="0" alt="Month Forward"></a></td>
               </tr>
-              <tr align="center"> 
+              <tr align="center">
                 <td colspan="2"><img src="cleardot.gif" width="40" height="5"></td>
               </tr>
-              <tr align="center"> 
+              <tr align="center">
                 <td colspan="2"><b><font face="Arial, Helvetica, sans-serif" size="1">Year</font></b></td>
               </tr>
-              <tr align="center"> 
+              <tr align="center">
                 <td colspan="2"><a href="javascript:clickYearBack()"><img src="reverse.jpg" width="18" height="18" border="0" alt="Year Back"></a><img src="cleardot.gif" width="2" height="18"><a href="javascript:clickYearForeward()"><img src="foreward.jpg" width="18" height="18" border="0" alt="Year Forward"></a></td>
               </tr>
-              <tr align="center"> 
+              <tr align="center">
                 <td colspan="2"><img src="cleardot.gif" width="40" height="5"></td>
               </tr>
-              <tr align="center"> 
+              <tr align="center">
                 <td colspan="2"><b><font face="Arial, Helvetica, sans-serif" size="1">Calendar</font></b></td>
               </tr>
-              <tr align="center"> 
+              <tr align="center">
                 <td colspan="2"><a href="javascript:showCalendar()"><img src="callaunch.jpg" width="38" border="0" alt="Calendar"></a></td>
               </tr>
-              <tr align="center"> 
+              <tr align="center">
                 <td colspan="2"><img src="cleardot.gif" width="40" height="5"></td>
               </tr>
-              <tr align="center"> 
+              <tr align="center">
                 <td colspan="2"><b><font face="Arial, Helvetica, sans-serif" size="1">Moon<br>
                   Phases </font></b></td>
               </tr>
-              <tr align="center"> 
+              <tr align="center">
                 <td colspan="2"><a href="javascript:showMoonPhases()"><img src="moons.jpg" width="18" height="18" border="0" alt="Moon Phases"></a><img src="cleardot.gif" width="3" height="10"><a href="phases.htm" target="_blank"><img src="moons2.jpg" width="18" height="18" border="0" alt="Moon Phases Info"></a></td>
               </tr>
               <tr align="center">
@@ -1038,11 +1038,11 @@ DIV.Scroll {
             </table>
           </td>
         </tr>
-        <tr bgcolor="#FFFFFF"> 
+        <tr bgcolor="#FFFFFF">
           <td align="center" valign="top" bgcolor="#FFFFFF">
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
-              <tr> 
-                <td align="center" valign="bottom"> <b> 
+              <tr>
+                <td align="center" valign="bottom"> <b>
                   <select name="month" onChange="clickSetMonth(value)">
                     <option value="1">1. Hammer </option>
                     <option value="2">2. Alturiak</option>
@@ -1058,20 +1058,20 @@ DIV.Scroll {
                     <option value="12">12. Nightal</option>
                   </select>
                   </b></td>
-                <td align="center" valign="bottom"> 
+                <td align="center" valign="bottom">
                   <input type="text" name="year" size="4" maxlength="7" onChange="clickSetYear(value)">
                 </td>
                 <td align="center" valign="bottom"> <font size="1"><b><a href="#"><img src="accept.jpg" width="50" height="22" border="0" alt="Accept"></a></b></font></td>
                 <td align="center" rowspan="2"><img src="cleardot.gif" width="1" height="40"></td>
               </tr>
-              <tr> 
+              <tr>
                 <td align="center" valign="top"><font size="1"><b><font face="Arial, Helvetica, sans-serif">Month</font></b></font></td>
-                <td align="center" valign="top"><font size="1"><b><font face="Arial, Helvetica, sans-serif">Year 
+                <td align="center" valign="top"><font size="1"><b><font face="Arial, Helvetica, sans-serif">Year
                   (DR)</font></b></font></td>
                 <td align="center" valign="middle"><img src="cleardot.gif" width="40" height="5"></td>
               </tr>
 		<tr>
-                <td align="center" valign="bottom"> <b> 
+                <td align="center" valign="bottom"> <b>
                   <select name="latitude" onChange="clickSetLat(value)">
                     <option value="1">Artic</option>
                     <option value="2">Subarctic</option>
@@ -1080,7 +1080,7 @@ DIV.Scroll {
                     <option value="5">Tropical</option>
                   </select>
                   </b></td>
-                <td align="center" valign="bottom"> <b> 
+                <td align="center" valign="bottom"> <b>
                   <select name="locale" onChange="clickSetLoc(value)">
                     <option value="1">Coastal</option>
                     <option value="2">Desert</option>
@@ -1092,26 +1092,26 @@ DIV.Scroll {
                   </select>
                   </b></td>
 		</tr>
-              <tr> 
+              <tr>
                 <td align="center" valign="top"><font size="1"><b><font face="Arial, Helvetica, sans-serif">Latitude</font></b></font></td>
-                <td align="center" valign="top"><font size="1"><b><font face="Arial, Helvetica, sans-serif">Terrain 
+                <td align="center" valign="top"><font size="1"><b><font face="Arial, Helvetica, sans-serif">Terrain
         		</font></b></font></td>
                 <td align="center" valign="middle"><img src="cleardot.gif" width="40" height="5"></td>
-              </tr>		    
+              </tr>
             </table>
           </td>
         </tr>
       </table>
     </td>
   </tr>
-  <tr align="center"> 
-    <td> 
+  <tr align="center">
+    <td>
       <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" background="fr_bot.jpg">
-        <tr align="center"> 
+        <tr align="center">
           <td>          <img src="cleardot.gif" width="200" height="2
 "><br>
             <img src="cleardot.gif" width="1" height="14
-" align="left"> <font size="1" face="Arial, Helvetica, sans-serif" color="#FFFFCC">© 
+" align="left"> <font size="1" face="Arial, Helvetica, sans-serif" color="#FFFFCC">©
             2005 Wizards of the Coast, Inc., a subsidiary of Hasbro, Inc. <br>
             All Rights Reserved.</font></td>
         </tr>
